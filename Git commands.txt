@@ -145,5 +145,5 @@ $ git merge branchname
 * to view the branch in github, push it using $ git push -u repositoryUrlName branchname
 
 #If you no longer need the branch delete it using
-$ git barnch -d branchname
+$ git branch -d branchname
 
