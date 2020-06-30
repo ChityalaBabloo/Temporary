@@ -1,0 +1,110 @@
+#Lists all the settings
+$ git congfig --list
+
+#to see specific setting
+$ git config settingName. for ex, git config user.email will display user email
+
+#Navigating in git.
+~ ---> indicates the home directory.
+cd .. ---> cd space dot dot is used to go back from the current directory
+
+#see all the files present
+$ ls
+
+#see all the files along with the hidden files
+$ ls -la
+
+#Initializing the empty git repository. i.e.creating a .git folder
+$ git init
+
+#create some files and save them in the project folder. let the git know that all these changes. To do so,
+
+#add all the changes that we made to our project. The dot indicates the folder/directory
+$ git add . 	and enter
+
+#Inorder to keep track of this changes, we actually should commit this changes. But this is a two step process.
+$ git commit -m "This is our first commit"
+Note: every commit we save is a point of time. so that we can comeback to whenever is needed.
+
+#To view all the commit history, we can say
+$ git log
+
+#To view commits from a particular person, we can say
+$ git log --author="wendy"
+
+#To view whether ther're any changes to the code, we can say
+$ git status
+
+#To add a specific file
+#git add filename. for ex, git add abc.txt or git add "space seperated filename.txt"
+
+# working copy > staging area > repository
+#working copy -- files we work with.e., whenever we create a file that will be on local computer.
+
+#staging area -- using 'add', the locla/worknging files are sent to this staging area. In other words,
+the files that have changed content will be added to git using 'add'.once this is done. files will be ready for commit.
+These are the files ready to get commited.
+
+#repository -- whenever the files red commite, they goes to repository.
+----------------
+#How to view the changes that you made.
+$ git diff -- will show the differneces for a file.
+--> after adding and commiting this file. if you enter the same command, it will display if there are any more differneces that present in the local
+compared to the repo.
+-------------------
+#When changes are in multiple files
+It will go file by file and displays the differnces. Now you can check the differnces and add both of them and commit.
+-------------------
+
+#comparing the staging area with the repository
+$ git diff -- compares working copy with repository
+$ git diff --staged --> compares stagging area with repository
+---------------------------------
+
+#How to delete files -- there a couple of ways. this is the easiest way
+$ git rm filename --> it removes the file from both the woking area and the repo.
+Now we have to commit. we have to commit it beacuse whenever we do so it is taking the snapshot
+of that point in time.
+----------------------------------
+#How to Move and Rename files
+----> when you rename a file in explorer. and check git status, it displays you deleted and added file.
+----> Now, git add newfilename
+----> git rm oldfilename
+----> then, check git status. now it displays the file has been renamed which has to be commited.
+But this is tood ifficult to be done. lets see another way.
+$ git mv filename newfilename  -- this renames the file.
+
+#Another way is. we can move the file into an existing folder and rename the file. say
+$ git mv filename existingfolder/newfilename
+--> as said what the above code does is, moves file to the existing folder with renaming.
+-----------------------------------
+#Directly commit to repository
+$ git commit -am "Cleaned up the comments"
+
+--> this command will grab everything in the working copy and puts in repository
+-------------------------------------
+#somebody/we accidentally modified something. we want it to be back. So, we will get that file from repository and replace our local file.
+$ git checkout -- filename
+---> what checkout does is, takes out files from the repository and makes them as working copy
+
+$ git checkout commitId -- filename
+-->every commit has an commitid. if we want to get back a file of an particular commit,
+-->we have to checkout with commitid along with files wanted. so, the files from repo will be to our working area.
+Now, we have to commit it. $ git commit -am "undoing the kevins mistakes"
+--------------------------------------
+
+#Unstaging files i.e, bring the files back to working area
+$ git reset HEAD filename
+
+---------------------------------------
+#Working with Github.
+--->first setup github's remote url
+$ git remote add nickname https://github.com/ChityalaBabloo/code_snippets.git
+*so whenever we want to use that specific repository url we can just enter nickname [any name that is used]
+
+$ git remote
+*displays the nickname entered
+
+----> now, lets push the files to public repository. whereas fetch means get files
+$ git push -u nickname master
+this pushes the all the files into nickname repository 
