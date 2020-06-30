@@ -142,3 +142,8 @@ $ git commit -am "Files has been modified"
 #once commited, move onto master and merge the sub-branch
 $ git checkout master
 $ git merge branchname
+* to view the branch in github, push it using $ git push -u repositoryUrlName branchname
+
+#If you no longer need the branch delete it using
+$ git barnch -d branchname
+
