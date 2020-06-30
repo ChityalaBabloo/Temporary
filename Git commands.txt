@@ -108,3 +108,37 @@ $ git remote
 ----> now, lets push the files to public repository. whereas fetch means get files
 $ git push -u nickname master
 this pushes the all the files into nickname repository 
+
+=====================================================
+What is a branch. what is the use of it?
+--> A branch is a copy of our main repository. when we're working with a team, work on main branch can directly lead to issues.So we'll have a copy of our main branch and work on our copy and
+we'll submit our changes back into main branch and there's someone who gonna review our changes, if they get accepted, they can be back to/merged into main branch
+
+--> create a new branch and make necessary changes. Once done, go to all branches and click 'new pull request' of a specific branch that you want to submit to main branch.
+This basically creates a pull request.
+
+--> Now, once owner of repository clicks on master master, all the pull requests can be viewed under 'Pull requests' section.
+--> once you click on any of the pull request, he/she will be able to that pull request was broken up into 3 sub-tabs
+1. Coversation  - where ask the pull requester any questions
+2. Commits	- all his commits
+3. files changed - displays all the files whose content been changed
+
+--> if owner is okay with all these changes, he/she clicks on 'Merge pull request"
+--> if he is not satisfied with these changes, clicks on 'close pull request' which prevents changes in master!
+
+=========================================================
+#To create a branch
+$ git branch branchname
+
+#To switch to the branch
+$ git checkout branchname
+
+*The same can be done in a simple way. create branch and switch to it at the same time
+$ git checkout -b branchname
+
+#Now make out the necessary changes in the files of sub-branch and commit them
+$ git commit -am "Files has been modified"
+
+#once commited, move onto master and merge the sub-branch
+$ git checkout master
+$ git merge branchname
